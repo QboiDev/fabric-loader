@@ -198,7 +198,7 @@ public final class LibClassifier<L extends Enum<L> & LibraryType> {
 					}
 				}
 			}
-		} else {
+		} else if (path.toString().endsWith(".jar") || path.toString().endsWith(".zip")) {
 			try (ZipFile zf = new ZipFile(path.toFile())) {
 				for (L lib : libs) {
 					if (excludedLibs.contains(lib) || origins.containsKey(lib)) continue;
